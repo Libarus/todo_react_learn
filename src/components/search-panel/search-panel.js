@@ -5,7 +5,7 @@ import './search-panel.css';
 const SearchPanel = () => {
     return (
         <input type="text"
-               className="form-control search-input"
+               className="form-control search-input input-xs"
                placeholder="type to search" />
     );
 };

@@ -1,5 +1,8 @@
 
 .app-header {
+    display: -webkit-flex;
+    -webkit-align-items: flex-end;
+    display: flex;
     align-items: flex-end;
 }
 
@@ -9,5 +12,5 @@
 
 .app-header h2 {
     font-size: 1.2rem;
-    color:grey;
+    color: grey;
 }
