@@ -10,6 +10,7 @@ export default class TodoListItem extends Component {
                 onToggleDone,
                 important,
                 done,
+                itemId
                 } = this.props;
 
         let todoListItemClasses = "todo-list-item";
@@ -22,7 +23,7 @@ export default class TodoListItem extends Component {
                     className="todo-list-item-label"
                     //style={style}
                     onClick={ onToggleDone } >
-                    { label }
+                    { label } #{ itemId }
                 </span>
 
                 <button type="button"
@@ -39,5 +40,4 @@ export default class TodoListItem extends Component {
             </span>
         );
     }
-
 }

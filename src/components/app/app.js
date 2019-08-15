@@ -4,7 +4,7 @@ import AppHeader from '../app-header';
 import SearchPanel from '../search-panel';
 import TodoList from '../todo-list';
 import ItemStatusFilter from '../item-status-filter';
-import AddItemPanel from '../add-item-panel';
+import ItemAddForm from '../item-add-form';
 
 import './app.css';
 
@@ -63,7 +63,6 @@ export default class App extends Component {
 
     render() {
         const { todoData } = this.state;
-
         return (
             <div className="todo-app">
                 <AppHeader toDo={1} done={3}/>
@@ -77,8 +76,8 @@ export default class App extends Component {
                     onToggleImportant = { (id) => this.toggleImportant(id) }
                     onToggleDone = { (id) => this.toggleDone(id) }
                 />
-                <AddItemPanel onAdded={ (text) => this.addItem(text) }/>
+                <ItemAddForm onAdded={ (text) => this.addItem(text) }/>
             </div>
         );
-    }
-}
+    };
+};
