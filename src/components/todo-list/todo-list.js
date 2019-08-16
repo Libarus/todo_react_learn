@@ -5,17 +5,21 @@ import './todo-list.css';
 export default class TodoList extends Component {
 
     render() {
-        const {todos, onDeleted, onToggleImportant, onToggleDone} = this.props;
+        const {todos, onDeleted, onToggleImportant, onToggleDone, searchString } = this.props;
         const elements = todos.map((item) => {
             const { id, ...itemProps } = item;
-            return (
-                <li key={id} className="list-group-item">
-                    <TodoListItem {...itemProps} itemId={id}
-                                  onDeleted={() => onDeleted(id)}
-                                  onToggleImportant={() => onToggleImportant(id)}
-                                  onToggleDone={() => onToggleDone(id)}/>
-                </li>
-            );
+            if (searchString === '' || item.label.toUpperCase().indexOf(searchString.toUpperCase()) !== -1) {
+                return (
+                    <li key={id} className="list-group-item">
+                        <TodoListItem {...itemProps} itemId={id}
+                                      onDeleted={() => onDeleted(id)}
+                                      onToggleImportant={() => onToggleImportant(id)}
+                                      onToggleDone={() => onToggleDone(id)}/>
+                    </li>
+                );
+            } else {
+                return null;
+            }
         });
         return elements;
     }
